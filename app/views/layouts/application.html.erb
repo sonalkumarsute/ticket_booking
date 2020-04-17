@@ -3,6 +3,9 @@
   <head>
     <title>TicketBooking</title>
     <%= csrf_meta_tags %>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">   
@@ -16,9 +19,18 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <%= link_to 'Ticket Booking', movies_path, class: 'navbar-brand' %>
-        </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav">  
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>          
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-auto">
+            <li>  
+              <%= link_to 'Movies', movies_path, class: 'active' %>
+            </li>  
             <li>     
               <%= link_to 'Venues', venues_path, class:"active" %>
             </li>  
@@ -32,7 +44,7 @@
               <%= link_to 'Add Shows', shows_path, class:"active" %>
             </li>                          
           </ul>
-        </div>
+        </div>  
       </div>
     </nav>    
 
