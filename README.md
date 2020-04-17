@@ -42,6 +42,8 @@ Add Movie: By clicking on this tab, you can add new movie
 
 Add Venue: By clicking on this tab, you can add new venue.
 
+Add shows: You can add which movie will play at which venue. 
+
 NOTE: To find best seat please check movie page, there you by clicking "Book" option you can find best seat available.
 
 
