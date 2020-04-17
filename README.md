@@ -15,6 +15,15 @@ Demo App Available at:
 
 https://booking-lycan.herokuapp.com/
 
+
+To get JSON data for venues
+
+https://booking-lycan.herokuapp.com/get_layout?venue=venue_id
+
+E.g:
+
+https://booking-lycan.herokuapp.com/get_layout?venue=1
+
 Ticket Booking App:
 
 App will help you find best seat in theater, for single person or group of members.
