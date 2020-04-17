@@ -17,7 +17,18 @@ class MoviesController < ApplicationController
     end  
   end  
 
+  def shows
+    @movies = Movie.all
+    @venues = Venue.all
+  end  
 
+  def add_show
+    @show = Show.create(venue_id: params[:venue_id],movie_id: params[:movie_id])
+    respond_to do |format|
+      format.html {redirect_to shows_path, notice: 'Movie ' + @show.movie.title + ' added to ' + @show.venue.name + ' successfully.'}   
+    end      
+  end 
+   
   def group_booking(need)
     seats = [] 
     seats_available = []
@@ -39,6 +50,7 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @showings = @movie.showings.includes([:venue])
   end
 
   # GET /movies/new

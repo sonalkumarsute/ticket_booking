@@ -16,8 +16,17 @@
       <div><%= link_to 'Book', "", class:"btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></div> 
       <div class="pull-right"><%= link_to 'Back', movies_path, class:"btn-sm btn-warning"%></div>
     </div>
-
   </div>
+  <h3>Currently Playing In:</h3>
+  <%if @showings%>
+    <% @showings.each do |show|%>
+      <div class="row">
+        <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="background: orange;padding: 10px;margin-left:20px;">
+        <%=show.venue.name%>
+      </div>
+    <%end%>   
+  <%end%>  
+
 </div>
 <!-- Modal -->
 <div id="book" class="modal fade" role="dialog">

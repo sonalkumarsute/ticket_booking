@@ -1,4 +1,6 @@
 class Venue < ApplicationRecord
+  has_many :shows
+  has_many :movies, through: :shows  
   def create_seating(rowspan,colspan)
       cols = []
       venue_data = {}
