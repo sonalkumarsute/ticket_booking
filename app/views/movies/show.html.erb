@@ -14,7 +14,7 @@
       <div>Genre: <b><%= @movie.genre %></b></div>
       <div>IMDB link: <b><%=link_to @movie.title, @movie.imdb_link%></b></div></br>   
       <div><%= link_to 'Book', "", class:"btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></div> 
-      <div class="pull-right"><%= link_to 'Back', movies_path, class:"btn-sm btn-warning"%></div>
+      <div class="pull-right"><%= link_to 'Back', root_path, class:"btn-sm btn-warning"%></div>
     </div>
   </div>
   <h3>Currently Playing In:</h3>
