@@ -1,0 +1,19 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: booking_dev
+  username: root
+  password: root
+  pool: 5
+  host: localhost
+
+production:
+  adapter:  postgresql
+  database: d9t4tq7r0gjuea
+  username: hawzypifkozjcm
+  password: c2920e5f35e2186ceec2af9025970201d00afb6c4a0129d1402bf6dc3394aeca
+  pool: 5
+  encoding: unicode
+  host: ec2-34-202-7-83.compute-1.amazonaws.com
+

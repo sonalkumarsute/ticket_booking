@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <center><h1>Running Movies</h1></center>
+  <div></div>
+
+  <div clsss="row">
+    <%if @movies.present?%>
+      <% @movies.each do |movie| %>
+        <div class="col-md-3" style="margin-top:10px;background: #ff980069;padding: 10px;border-radius: 10px;margin-left:50px;">
+          <center><h3><%= movie.title %></h3>
+          </br>
+          <%= image_tag "placeholder.png", class: "img-responsive", width:"150px", height:"150px"%>
+          <h5><%= truncate( raw( sanitize(movie.summary, :tags => %w(table tr td), :attributes => %w(id class style) ) ),:length => 75, :omission => "..") %></h5>
+          <%= link_to "View More", movie, class:"btn-sm btn-success"%></center>
+          <!-- <center><%#= link_to 'Book', "", class:"btn btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></center> -->
+        </div>  
+      <%end%>             
+    <%end%>  
+  </div>  
+<!--     <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Summary</th>
+          <th>Year</th>
+          <th>Genre</th>
+          <th>Imdb link</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%# @movies.each do |movie| %>
+          <tr>
+            <td><%#= movie.title %></td>
+            <td><%#= movie.summary %></td>
+            <td><%#= movie.year %></td>
+            <td><%#= movie.genre %></td>
+            <td><%#= movie.imdb_link %></td>
+            <td><%#= link_to 'Show', movie %></td>
+            <td><%#= link_to 'Edit', edit_movie_path(movie) %></td>
+            <td><%#= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <%# end %>
+      </tbody>
+    </table> -->
+
+  <br> 
+</div>
+

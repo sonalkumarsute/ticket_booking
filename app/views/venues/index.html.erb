@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>City Venues</h1>
+  <div clsss="row">
+    <%if @venues.present?%>
+      <% @venues.each do |venue| %>
+        <div class="col-md-3" style="margin-top:10px;background: #ff980069;padding: 10px;border-radius: 10px;margin-left:50px;">
+          <%= link_to "<i class='fa fa-edit'></i>".html_safe, edit_venue_path(venue) , class:"btn-sm btn-danger pull-right"%>
+          <%= link_to "<i class='fa fa-trash'></i>".html_safe, venue, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-sm btn-warning pull-right"%>
+          <center><h3><%= venue.name%></h3>
+          </br>
+          <%= image_tag "placeholder.png", class: "img-responsive", width:"150px", height:"150px"%>
+          <h5>Venue Layout: <%=venue.rows%> * <%=venue.cols%></h5>
+          <!-- <center><%#= link_to 'Book', "", class:"btn btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></center> -->
+        </div>  
+      <%end%>             
+    <%end%>  
+  </div>  
+
+  <br> 
+</div>
+

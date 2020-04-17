@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="row" style="background: #80808047;padding: 10px;">
+    <div class="col-md-4 col-md-4 col-xs-12 col-sm-12"><%= image_tag "placeholder.png", class: "img-responsive", width:"150px", height:"150px"%></br>
+      <%if notice.kind_of?(Array)%>
+        <p id="notice" style="font-size:18px;"><%= 'Best available seats are ' + notice.join(',')%></p>
+      <%end%>
+    </div>
+    <div class="col-md-8 col-md-8 col-xs-12 col-sm-12">
+      <span><h3><%= @movie.title %>&nbsp;&nbsp;<%= link_to "<i class='fa fa-edit'></i>".html_safe, edit_movie_path(@movie) , class:"btn-sm btn-warning pull-right"%></h3>
+      </br>
+      <div>Summary:<b> <%= truncate( raw( sanitize(@movie.summary, :tags => %w(table tr td), :attributes => %w(id class style) ) ),:length => 75, :omission => "..") %></b></div>
+      <div>Year: <b><%= @movie.year %></b></div>
+      <div>Genre: <b><%= @movie.genre %></b></div>
+      <div>IMDB link: <b><%=link_to @movie.title, @movie.imdb_link%></b></div></br>   
+      <div><%= link_to 'Book', "", class:"btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></div> 
+      <div class="pull-right"><%= link_to 'Back', movies_path, class:"btn-sm btn-warning"%></div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="book" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Book Ticket</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please Enter Number of Tickets</p>
+        <%= form_tag book_ticket_movie_path, method: "POST", multipart: true, remote: true do%>
+          <div class="field">
+            <%=number_field_tag "count", "", class: "form-control", required: true%>
+          </div>  
+          <div class="field">
+            <%= select_tag "venue_id", options_for_select(Venue.pluck(:name,:id)) ,:prompt => "--select Venue--", :class => 'form-control', required: true %>
+            <!-- form.number_field :topic_id, id: :question_topic_id %> -->
+          </div>
+          <div class="pull-right"><%=submit_tag "Check Now", class:"btn-sm btn-warning"%></div>
+          <button type="button" class="btn-sm btn-default" data-dismiss="modal">Close</button>
+        <%end%>
+      </div>
+    </div>
+
+  </div>
+</div>
