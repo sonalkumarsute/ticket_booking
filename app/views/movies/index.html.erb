@@ -2,18 +2,19 @@
 <div class="container">
   <center><h1>Running Movies</h1></center>
   <div></div>
-
   <div clsss="row">
     <%if @movies.present?%>
       <% @movies.each do |movie| %>
-        <div class="col-md-3" style="margin-top:10px;background: #ff980069;padding: 10px;border-radius: 10px;margin-left:50px;">
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" style="margin-top:25px;background: #ff980069;padding: 10px;border-radius: 10px;">
           <center><h3><%= movie.title %></h3>
           </br>
           <%= image_tag "placeholder.png", class: "img-responsive", width:"150px", height:"150px"%>
           <h5><%= truncate( raw( sanitize(movie.summary, :tags => %w(table tr td), :attributes => %w(id class style) ) ),:length => 75, :omission => "..") %></h5>
           <%= link_to "View More", movie, class:"btn-sm btn-success"%></center>
           <!-- <center><%#= link_to 'Book', "", class:"btn btn-sm btn-success", 'data-toggle'=>"modal", 'data-target'=>"#book" %></center> -->
-        </div>  
+        </div>
+        <div class="col-md-1">  
+        </div>
       <%end%>             
     <%end%>  
   </div>  
